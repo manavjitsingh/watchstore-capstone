@@ -1,0 +1,95 @@
+<header class="header">
+  <!--Top Section-->
+  <!--<div class="nav-container">
+    <button class="hamburger"><i class="fas fa-bars"></i></button>
+
+    <a href="#" class="logo">
+      <img src="assets/logo.webp" alt="Hybrid Watch Store Logo" height="50">
+    </a>
+
+    <form class="search">
+      <input type="search" placeholder="Search for products..." aria-label="Search">
+    </form>
+
+    <div class="links">
+      <a href="#">LOGIN</a>
+      <a href="#">
+        <i class="fas fa-shopping-bag"></i>
+      </a>
+    </div>
+  </div>-->
+  <div class="nav-container py-2 px-3 bg-light shadow-sm">
+    <button class="hamburger btn btn-outline-secondary" (click)="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <a [routerLink]="['/']" class="logo d-flex align-items-center">
+      <img src="assets/logo.webp" alt="Hybrid Watch Store Logo" class="img-fluid" height="50">
+    </a>
+
+    <form class="search form-inline w-100">
+      <input #searchInput type="search" class="form-control rounded-pill w-100" placeholder="Search for products..." aria-label="Search" (keyup)="onSearch(searchInput.value)">
+
+    </form>
+    <span *ngIf="userEmail | async as email" class="me-3">Welcome, {{ email }}</span>
+    <div class="links d-flex align-items-center justify-content-end">
+      <a *ngIf="!(isLoggedIn | async)" [routerLink]="['/login']" class="btn btn-outline-secondary me-3">LOGIN</a>
+      <a *ngIf="isLoggedIn | async" (click)="logout()" class="btn btn-outline-secondary me-3">LOGOUT</a>
+      <a href="#" class="btn btn-outline-secondary">
+        <i class="fas fa-shopping-bag"></i>
+      </a>
+    </div>
+  </div>
+  <div class="sidebar bg-light shadow-sm" [ngClass]="{ 'show-sidebar': isSidebarVisible }">
+    <button class="btn btn-outline-secondary close-btn" (click)="toggleSidebar()">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul class="list-unstyled p-3">
+      <li><a href="#" class="text-decoration-none text-dark d-block py-2">Home</a></li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/products']">Shop All Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/products']" [queryParams]="{ gender: 'Men' }">Mens Watches</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/products']" [queryParams]="{ gender: 'Women' }">Women Watches</a>
+      </li>
+      <!-- Add more links as needed -->
+    </ul>
+  </div>
+
+  <div *ngIf="searchResults.length > 0" class="search-results bg-white shadow-sm mt-2 p-3">
+    <ul class="list-unstyled">
+      <li *ngFor="let watch of searchResults" class="search-result-item p-2 mb-2 d-flex align-items-center border-bottom">
+        <!-- Display the first image -->
+        <img [src]="watch.imagePaths?.length > 0 ? watch.imagePaths[0] : 'assets/default-watch.jpg'" alt="{{watch.name}}" class="img-thumbnail" width="50">
+        <div class="ms-3">
+          <a [routerLink]="['/watch', watch.id]" class="text-decoration-none text-dark" (click)="onResultClick()">
+            <strong>{{ watch.name }}</strong> - {{ watch.brand }}<br>
+            <small class="text-muted">${{ watch.price }}</small>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!--Bottom Section-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/products']">Shop All Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/products']" [queryParams]="{ gender: 'Men' }">Mens Watches</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/products']" [queryParams]="{ gender: 'Women' }">Women Watches</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+

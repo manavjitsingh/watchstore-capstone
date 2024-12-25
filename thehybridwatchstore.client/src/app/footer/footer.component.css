@@ -1,0 +1,169 @@
+/*.container {
+  display: grid;
+  background-color: #e4e4e4;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, 1fr);*/ /* Creates 6 equal-width columns */
+  /*max-width: fit-content;
+}
+
+[class^='grid-item'] {
+  display: grid;
+  align-items: start;
+  justify-content: start;
+  height: fit-content;
+  font-size: 16px;*/ /* Reduce font size slightly */
+  /*color: #333;
+  padding: 10px;*/ /* Minimize padding */
+/*}
+
+.footer-heading {
+  margin-bottom: 10px;*/ /* Minimize space below headings */
+  /*font-size: 18px;
+}
+.grid-item-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+.para{
+    display:flex;
+
+}
+.footer-logo {
+  max-width: 100px;*/ /* Limit logo size to reduce height */
+  /*margin-bottom: 10px;
+  align-self:center;
+}
+
+ul.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+  ul.list-unstyled li {
+    margin-bottom: 5px;*/ /* Minimize space between list items */
+  /*}
+
+.footer-social-icons a {
+  margin-right: 5px;*/ /* Reduce space between icons */
+  /*font-size: 16px;*/ /* Reduce icon size */
+/*}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;*/ /* Single-column layout on mobile */
+    /*grid-gap: 5px;
+  }
+
+  [class^='grid-item'] {
+    padding: 5px;*/ /* Reduce padding for mobile */
+    /*display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .footer-heading {
+    padding: 0;*/ /* Remove padding on mobile */
+  /*}
+}*/
+
+.container {
+  display: grid;
+  background-color: #f9f9f9; /* Lighten background color for a cleaner look */
+  grid-gap: 15px; /* Slightly increase grid gap for better spacing */
+  grid-template-columns: repeat(6, 1fr);
+  max-width: fit-content;
+  padding: 20px; /* Add padding around the container */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+[class^='grid-item'] {
+  display: grid;
+  align-items: start;
+  justify-content: start;
+  height: fit-content;
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
+}
+
+.footer-heading {
+  margin-bottom: 10px;
+  font-size: 20px; /* Increase heading size slightly */
+  font-weight: 600; /* Bold headings for emphasis */
+  color: #444; /* Darken heading color */
+}
+
+.grid-item-1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.para {
+  display: flex;
+  color: #666; /* Lighten text color for a softer look */
+}
+
+.footer-logo {
+  max-width: 120px; /* Slightly increase logo size */
+  margin-bottom: 10px;
+  align-self: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1)); /* Add shadow to logo */
+}
+
+ul.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+  ul.list-unstyled li {
+    margin-bottom: 8px; /* Slightly increase space between list items */
+  }
+
+    ul.list-unstyled li a {
+      color: #007bff; /* Change link color to a more vibrant blue */
+      text-decoration: none; /* Remove underline from links */
+      transition: color 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+      ul.list-unstyled li a:hover {
+        color: #0056b3; /* Darken link color on hover */
+      }
+
+.footer-social-icons a {
+  margin-right: 8px; /* Slightly increase space between icons */
+  font-size: 18px; /* Slightly increase icon size */
+  color: #007bff; /* Match icon color with link color */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+  .footer-social-icons a:hover {
+    transform: scale(1.1); /* Slightly enlarge icons on hover */
+    color: #0056b3; /* Darken icon color on hover */
+  }
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding: 15px; /* Adjust padding for mobile */
+  }
+
+  [class^='grid-item'] {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .footer-heading {
+    padding: 0;
+  }
+}
+

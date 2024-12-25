@@ -1,0 +1,199 @@
+<!--<div class="grid">
+  <div class="filtermenu">
+    <button class="btn btn-outline-secondary" (click)="toggleFilterMenu()">
+      <i class="fas fa-filter"></i> Filters
+    </button>
+  </div>-->
+
+  <!-- Filter Sidebar -->
+  <!--<div class="filter-sidebar bg-light shadow-sm" [ngClass]="{ 'show-sidebar': isFilterMenuVisible }">
+    <button class="btn btn-outline-secondary close-btn" (click)="toggleFilterMenu()">
+      <i class="fas fa-times"></i> Close
+    </button>
+    <h5>Filters</h5>-->
+    <!-- Gender Filter -->
+    <!--<div class="filter-section">
+      <h6>Gender</h6>
+      <label>
+        <input type="checkbox" (change)="toggleFilter('gender', 'Men')"> Men
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" (change)="toggleFilter('gender', 'Women')"> Women
+      </label>
+    </div>-->
+    <!-- Brand Filter -->
+    <!--<div class="filter-section">
+      <h6>Brand</h6>
+      <div *ngFor="let brand of brands">
+        <label>
+          <input type="checkbox" (change)="toggleFilter('brand', brand)"> {{ brand }}
+        </label>
+      </div>
+    </div>-->
+    <!-- Movement Filter -->
+    <!--<div class="filter-section">
+      <h6>Movement</h6>
+      <div *ngFor="let mov of movement">
+        <label>
+          <input type="checkbox" (change)="toggleFilter('movement', mov)"> {{ mov }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="sorting">-->
+    <!-- Sorting Controls -->
+    <!--<div class="sorting-controls mb-3">
+      <label for="sortOptions">Sort By:</label>
+      <select id="sortOptions" (change)="onSortChange($event)">
+        <option value="Name">Name</option>
+        <option value="PriceLowToHigh">Price (Low to High)</option>
+        <option value="PriceHighToLow">Price (High to Low)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="products">
+    <div *ngFor="let watch of filteredWatches" class="product-card" (click)="viewDetails(watch.id)">
+      <img *ngIf="watch.imagePaths && watch.imagePaths.length > 0" [src]="watch.imagePaths[0]" alt="{{ watch.name }}">
+      <div class="product-details">
+        <h5>{{ watch.name }}</h5>
+        <p>{{ watch.brand }} - ${{ watch.price }}</p>
+      </div>
+    </div>
+  </div>-->
+
+  <!-- Paging Controls -->
+  <!--<div class="paging-controls mt-3">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * pageSize >= totalItems">Next</button>
+  </div>
+</div>-->
+
+
+<!--pasted-->
+
+<div class="grid">
+  <div class="filtermenu">
+    <button class="btn btn-outline-secondary filterbutton" (click)="toggleFilterMenu()">
+      <i class="fas fa-filter"></i> Filters
+    </button>
+  </div>
+
+  <!--<div class="filter-sidebar bg-light shadow-sm" [ngClass]="{ 'show-sidebar': isFilterMenuVisible }">
+    <button class="btn btn-outline-secondary close-btn" (click)="toggleFilterMenu()">
+      <i class="fas fa-times"></i>
+    </button>
+    <h5>Filters</h5>
+  <div class="filter-section">
+    <h6>Gender</h6>
+    <label>
+      <input type="checkbox" (change)="toggleFilter('gender', 'Men')"> Men
+    </label>
+    <br />
+    <label>
+      <input type="checkbox" (change)="toggleFilter('gender', 'Women')"> Women
+    </label>
+  </div>
+
+  <div class="filter-section">
+    <h6>Brand</h6>
+    <div *ngFor="let brand of brands">
+      <label>
+        <input type="checkbox" (change)="toggleFilter('brand', brand)"> {{ brand }}
+      </label>
+    </div>
+  </div>
+
+  <div class="filter-section">
+      <h6>Movement</h6>
+      <div *ngFor="let mov of movement">
+        <label>
+          <input type="checkbox" (change)="toggleFilter('movement', mov)"> {{ mov }}
+        </label>
+      </div>
+    </div>
+  </div>-->
+
+
+
+
+
+  <div class="customfilter" [ngClass]="{ 'show-sidebar': isFilterMenuVisible }">
+    <h5>Filters</h5>
+
+    <!--<div>
+      <h6>Gender</h6>
+      <label>
+        <input type="checkbox" (change)="toggleFilter('gender', 'Men')"> Men
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" (change)="toggleFilter('gender', 'Women')"> Women
+      </label>
+    </div>-->
+    <div *ngIf="showGenderFilter">
+      <h6>Gender</h6>
+      <label>
+        <input type="checkbox" (change)="toggleFilter('gender', 'Men')"> Men
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" (change)="toggleFilter('gender', 'Women')"> Women
+      </label>
+    </div>
+
+    <div>
+      <h6>Brand</h6>
+      <div *ngFor="let brand of brands">
+        <label>
+          <input type="checkbox" (change)="toggleFilter('brand', brand)"> {{ brand }}
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <h6>Movement</h6>
+      <div *ngFor="let mov of movement">
+        <label>
+          <input type="checkbox" (change)="toggleFilter('movement', mov)"> {{ mov }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="sorting">
+    <div class="sorting-controls mb-3">
+      <label for="sortOptions">Sort By:</label>
+      <select id="sortOptions" (change)="onSortChange($event)">
+        <option value="Name">Name</option>
+        <option value="PriceLowToHigh">Price (Low to High)</option>
+        <option value="PriceHighToLow">Price (High to Low)</option>
+      </select>
+    </div>
+  </div>
+  <div class="products">
+    <div *ngFor="let watch of (filteredWatches.length > 0 ? filteredWatches : watches)" class="product-card" (click)="viewDetails(watch.id)">
+      <img *ngIf="watch.imagePaths && watch.imagePaths.length > 0" [src]="watch.imagePaths[0]" alt="{{ watch.name }}">
+      <div class="product-details">
+        <h5>{{ watch.name }}</h5>
+        <p>{{ watch.brand }} - ${{ watch.price }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="paging-controls mt-3">
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <span>Page {{ currentPage }}</span>
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * pageSize >= totalItems">Next</button>
+    </div>-->
+  <div class="paging-controls mt-3">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ Math.ceil(totalItems / pageSize) }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * pageSize >= totalItems">Next</button>
+  </div>
+
+</div>

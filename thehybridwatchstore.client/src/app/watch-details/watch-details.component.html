@@ -1,0 +1,24 @@
+<!-- watch-details.component.html -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngFor="let imagePath of watch.imagePaths">
+        <img [src]="imagePath" alt="{{watch.name}}" class="img-fluid mb-2">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2>{{ watch.name }}</h2>
+      <h4 class="text-muted">{{ watch.brand }}</h4>
+      <p>{{ watch.description }}</p>
+      <h3>${{ watch.price }}</h3>
+      <h5>Features</h5>
+      <ul>
+        <li *ngFor="let feature of watch.features">{{ feature }}</li>
+      </ul>
+      <h5>Specifications</h5>
+      <p>Gender: {{ watch.gender }}</p>
+      <p>Movement: {{ watch.movement }}</p>
+      <!-- Add more specifications as needed -->
+    </div>
+  </div>
+</div>

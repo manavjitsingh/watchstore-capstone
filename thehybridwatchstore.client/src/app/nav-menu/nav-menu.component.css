@@ -1,0 +1,255 @@
+header{
+    max-width:100%
+}
+
+  .links .fa-shopping-bag {
+    font-size: 20px;
+    color: #f90;
+  }
+.nav-container {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr 1.5fr;
+  /* Adjust column sizes */
+  grid-template-areas: "logo search links";
+  /* Defines the grid areas */
+  align-items: center;
+  gap: 10px;
+  /* Adds spacing between grid items */
+}
+
+  .nav-container .logo {
+    grid-area: logo;
+    /* Assigns the logo to the 'logo' grid area */
+  }
+
+  .nav-container .search {
+    grid-area: search;
+    display: flex;
+    /* Ensures the search bar takes up the full space */
+    justify-content: space-around;
+  }
+
+    .nav-container .search input {
+      width: 90%;
+      /* Ensures the search input takes the full width of its container */
+      padding: 10px;
+      /* Adds padding for better appearance */
+      font-size: 16px;
+      /* Adjusts the font size for better readability */
+      box-sizing: border-box;
+      /* Ensures padding is included in the width calculation */
+    }
+
+  .nav-container .links {
+    grid-area: links;
+    /* Assigns the links to the 'links' grid area */
+    display: flex;
+    /* Aligns links next to each other */
+    justify-content: center;
+    gap: 20px;
+    /* Adds spacing between the links */
+  }
+
+  .nav-container img {
+    max-height: 50px;
+    /* Ensures the logo doesn't exceed a certain height */
+  }
+
+  .nav-container form {
+    width: 100%;
+    /* Ensures the search bar takes the maximum available space */
+  }
+
+  .nav-container a,
+  .nav-container button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-container .hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: rgb(88, 82, 82);
+    cursor: pointer;
+    margin-right: 0px;
+  }
+
+  /*Search Results*/
+.search-results {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 0.25rem;
+}
+
+.search-result-item {
+  cursor: pointer;
+  justify-content:center;
+}
+
+  .search-result-item:hover {
+    background-color: #f8f9fa;
+  }
+
+  .search-result-item img {
+    border-radius: 0.25rem;
+  }
+
+  .search-result-item a {
+    display: block;
+    width: 100%;
+  }
+
+/* Bottom Navbar */
+.navbar {
+  background-color: #ffffff;
+  padding: 10px 0;
+}
+
+.navbar-nav .nav-link {
+  color: #333;
+  font-size: 16px;
+  padding: 10px 15px;
+}
+
+  .navbar-nav .nav-link:hover {
+    color: #007bff;
+  }
+
+.navbar-nav .dropdown-menu {
+  border-radius: 0;
+}
+
+/*sidebar*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+  .sidebar.show-sidebar {
+    left: 0;
+  }
+
+  .sidebar .close-btn {
+    margin: 10px;
+  }
+
+.hamburger {
+  display: none;
+}
+
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  /*top half nav bar grid*/
+  .nav-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr; /* Three columns for hamburger, logo, and links */
+    grid-template-rows: auto auto; /* Two rows: one for logo, one for search */
+    grid-template-areas:
+      "ham logo links"
+      "search search search"; /* Places search bar in the second row spanning all columns */
+    align-items: center;
+    row-gap: 15px; /* Adds 15px space between rows */
+    column-gap: 20px;
+  }
+
+  .nav-container .hamburger {
+    grid-area: ham;
+    display: flex;
+    justify-content: start;
+    padding:5px;/* Assigns the hamburger button to the 'ham' grid area */
+  }
+
+  .nav-container .logo {
+      padding:10px;
+    grid-area: logo;
+    justify-content: center; /* Assigns the logo to the 'logo' grid area */
+  }
+
+  .nav-container .search {
+    grid-area: search; /* Moves the search bar to the new row */
+    width: 100%; /* Ensures the search bar fills the entire row */
+  }
+
+  .nav-container .links {
+    grid-area: links; /* Assigns the links to the 'links' grid area */
+    /* Aligns links to the right */
+    padding:5px;
+  }
+
+  /* Show hamburger menu, ensure it's visible */
+  .navbar-toggler {
+    display: block;
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  .navbar-collapse {
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+  }
+
+    .navbar-collapse.show {
+      display: block;
+    }
+
+  .navbar-nav {
+    width: 100%;
+    text-align: left;
+  }
+
+    .navbar-nav .nav-link {
+      width: 100%;
+      padding: 10px 15px;
+    }
+
+    .navbar-nav .dropdown-menu {
+      position: static;
+      float: none;
+    }
+
+  /* Center the logo */
+  .navbar-brand {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  /* Adjust the search bar for mobile */
+  .form-inline {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .form-control {
+    width: calc(100% - 30px);
+    margin: 0 auto;
+  }
+
+  /* Ensure the cart icon is visible */
+  .header-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+    .header-icons .fa-shopping-bag {
+      margin-left: 15px;
+      color: #f90;
+      font-size: 20px;
+    }
+}

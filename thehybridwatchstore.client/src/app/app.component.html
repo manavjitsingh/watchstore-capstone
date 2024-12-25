@@ -1,0 +1,15 @@
+<!--<app-nav-menu></app-nav-menu>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>-->
+<div class="wrapper">
+  <app-nav-menu></app-nav-menu>
+  <div class="content">
+    <ng-container *ngIf="isHomePage()">
+      <app-slideshow></app-slideshow>
+    </ng-container>
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>

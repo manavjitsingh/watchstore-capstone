@@ -1,0 +1,89 @@
+<!--<div class="container mt-5">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="p-4 shadow-sm bg-white rounded">
+    <h3 class="mb-4 text-center">Register</h3>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" class="form-control" placeholder="Enter your email" />
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger mt-2">
+        <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="registerForm.get('email')?.errors?.['email']">Please enter a valid email address.</small>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" class="form-control" placeholder="Enter your password" />
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger mt-2">
+        <small *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</small>
+        <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirm your password" />
+      <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="text-danger mt-2">
+        <small *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Confirming your password is required.</small>
+        <small *ngIf="registerForm.errors?.['mismatch']">Passwords do not match.</small>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="text-danger mt-3">
+      <small>{{ errorMessage }}</small>
+    </div>
+
+    <div class="form-group mt-4">
+      <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </div>
+  </form>
+
+  <p class="text-center mt-4">
+    Already have an account?
+    <a (click)="navigateToLogin()" class="text-primary" style="cursor: pointer;">Login here</a>
+  </p>
+</div>-->
+<div class="container mt-5">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="p-4 shadow-sm bg-white rounded">
+    <h3 class="mb-4 text-center">Register</h3>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" class="form-control" placeholder="Enter your email" />
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger mt-2">
+        <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="registerForm.get('email')?.errors?.['email']">Please enter a valid email address.</small>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" class="form-control" placeholder="Enter your password" />
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger mt-2">
+        <small *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</small>
+        <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirm your password" />
+      <div *ngIf="registerForm.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched" class="text-danger mt-2">
+        <small>Passwords do not match.</small>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="text-danger mt-3">
+      <small>{{ errorMessage }}</small>
+    </div>
+
+    <div class="form-group mt-4">
+      <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </div>
+  </form>
+
+  <p class="text-center mt-4">
+    Already have an account?
+    <a (click)="navigateToLogin()" class="text-primary" style="cursor: pointer;">Login here</a>
+  </p>
+</div>
